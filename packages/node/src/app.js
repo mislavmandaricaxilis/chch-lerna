@@ -1,6 +1,6 @@
 import express from 'express';
 
-import home from "./modules/home";
+import home from "@modules/home";
 
 const app = express();
 
