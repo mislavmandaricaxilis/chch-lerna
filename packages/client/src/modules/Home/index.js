@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
 
 import logo from './logo.svg';
-import './home.css';
+import './home.scss';
 
 class Home extends Component {
   state = {
     message: ''
   }
 
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.requestServerMessage = this.requestServerMessage.bind(this);
+  }
+
   async componentDidMount() {
+    await this.requestServerMessage();
+  }
+
+  async handleClick() {
+    await this.requestServerMessage();
+  }
+
+  async requestServerMessage() {
     const result = await fetch('api/');
     if (result.ok) {
       const message = await result.text();
-      this.setState({ message });
+      this.setState({ message: message });
+    } else {
+      this.setState({ message: 'No server message' })
     }
   }
 
@@ -26,6 +42,9 @@ class Home extends Component {
         <p className="Home-intro">
           To get started, edit <code>src/modules/Home/index.js</code> and save
           to reload.
+        </p>
+        <p>
+          <button onClick={this.handleClick}>Get server message</button>
         </p>
         <p>
           {this.state.message}
