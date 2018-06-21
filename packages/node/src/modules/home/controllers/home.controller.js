@@ -1,5 +1,7 @@
+import { User } from 'dtos';
+
 export function getIndex(req, res) {
-  res.send('Hello World');
+  res.json(new User(1, 'Mislav'));
 }
 
 export function postIndex(req, res) {

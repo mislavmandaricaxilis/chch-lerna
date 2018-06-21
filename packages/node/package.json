@@ -6,9 +6,11 @@
     "@axilis/node-scripts": "0.1.0-prerelease-7",
     "body-parser": "^1.18.3",
     "compression": "^1.7.2",
+    "dtos": "^1.0.0",
     "express": "^4.16.3",
     "express-winston": "^2.5.1",
     "raven": "^2.6.3",
+    "typescript": "^2.9.2",
     "winston": "^3.0.0",
     "winston-raven-sentry": "^1.0.1"
   },
@@ -24,6 +26,9 @@
     },
     "aliases": {
       "@modules": "src/modules"
-    }
+    },
+    "sources": [
+      "dtos"
+    ]
   }
 }
