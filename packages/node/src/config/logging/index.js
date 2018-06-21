@@ -7,7 +7,7 @@ import sentry from '../sentry';
 const logLevel = process.env.LOG_LEVEL || 'info';
 const sentryLogLevel = process.env.LOG_LEVEL_SENTRY || 'warn';
 
-const logger = new winston.Logger({
+const logger = winston.createLogger({
     transports: [
         new winston.transports.Console({
             level: logLevel,
@@ -33,7 +33,7 @@ const logger = new winston.Logger({
 
 export const terminate = () => {
     if (logger.transports.CloudWatch) {
-        logger.transports.CloudWatch.kthxbye(() => {});
+        logger.transports.CloudWatch.kthxbye(() => { });
     }
 };
 

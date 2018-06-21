@@ -17,7 +17,7 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.use(compression());
 
 server.use(requestLogger);
-server.use('/', app);
+server.use('/api', app);
 server.use(sentry.errorHandler());
 
 server.listen(server.get('port'));
